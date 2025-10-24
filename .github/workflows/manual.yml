@@ -1,4 +1,4 @@
-name: CVPR RSS 推送到企业微信
+name: RSS 推送到企业微信
 
 on:
   schedule:
