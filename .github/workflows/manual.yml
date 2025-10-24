@@ -8,10 +8,15 @@ on:
 jobs:
   rss_push:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 给予写权限
 
     steps:
       - name: 检出仓库
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: true
 
       - name: 设置 Python 环境
         uses: actions/setup-python@v5
