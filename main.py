@@ -4,7 +4,7 @@ import json
 import os
 
 WEBHOOK_URL = os.getenv("WECHAT_WEBHOOK")
-FEED_URL = "https://openaccess.thecvf.com/rss"  # 示例RSS地址
+FEED_URL = "https://CPR-RSS.github.io/rss/cvpr2020.xml"  # 示例RSS地址
 
 def send_wechat_message(text):
     data = {
