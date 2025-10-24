@@ -18,10 +18,7 @@ and pushes updates to a **WeChat Company (企业微信)** group via webhook.
 ### 1️⃣ Get a WeChat Webhook
 - In your WeChat Company group, create a **bot** (添加机器人)
 - Copy the **webhook URL**, e.g.:
-
 https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=YOUR_KEY
-
-复制代码
 
 ---
 
@@ -32,24 +29,17 @@ https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=YOUR_KEY
 Name: WECHAT_WEBHOOK
 Value: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=YOUR_KEY
 
-复制代码
-
 ---
 
 ### 3️⃣ Configure Your RSS Target
 - Open `main.py`
 - Replace the RSS feed URL with your target website’s feed:
 
-```python
+
 RSS_URL = "https://example.com/rss.xml"
 4️⃣ Run It
-You can run it locally:
+You can use GitHub Actions for automatic scheduled updates.
 
-bash
-复制代码
-python3 main.py
-Or use GitHub Actions for automatic scheduled updates.
-Example workflow will look like this:
 
 🧠 Notes
 The script keeps track of previously pushed items to avoid duplicate notifications.
