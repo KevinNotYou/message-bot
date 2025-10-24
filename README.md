@@ -47,9 +47,3 @@ The script keeps track of previously pushed items to avoid duplicate notificatio
 It supports multiple RSS URLs (you can extend main.py to use a list).
 
 Works with both GitHub Actions and self-hosted Ubuntu servers.
-
-## 📄 License
-
-MIT License © 2025
-
-```
