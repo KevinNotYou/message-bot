@@ -1,7 +1,3 @@
-当然可以 👍 下面是一个简洁、清晰、专业风格的 `README.md` 示例，适合你描述的这个项目（企业微信 + RSS 订阅推送）：
-
----
-
 ```markdown
 # WeChat Company RSS Notifier
 
@@ -63,34 +59,6 @@ python3 main.py
 Or use **GitHub Actions** for automatic scheduled updates.
 Example workflow:
 
-```yaml
-name: RSS Push to WeChat
-
-on:
-  schedule:
-    - cron: "0 */6 * * *"   # Run every 6 hours
-  workflow_dispatch:
-
-jobs:
-  rss_push:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-      - name: Run notifier
-        env:
-          WECHAT_WEBHOOK: ${{ secrets.WECHAT_WEBHOOK }}
-        run: python3 main.py
-```
-
----
-
-## 🧩 Dependencies
-
-```bash
-pip install feedparser requests
-```
 
 ---
 
@@ -105,10 +73,5 @@ pip install feedparser requests
 ## 📄 License
 
 MIT License © 2025
-
-```
-
----
-
 
 ```
