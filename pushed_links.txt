@@ -1,4 +1,3 @@
-https://openai.com/index/openai-scholars-2020-final-projects
 https://openai.com/index/truthfulqa
 https://openai.com/index/codex-now-generally-available
 https://openai.com/global-affairs/the-power-of-personalized-ai
