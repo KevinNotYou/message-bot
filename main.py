@@ -15,8 +15,11 @@ def load_history():
     return set()
 
 def save_history(links):
-    """保存已推送的文章链接"""
+    """保存已推送的文章链接（按列表顺序保存，保持顺序）"""
     with open(HISTORY_FILE, 'w', encoding='utf-8') as f:
+        if isinstance(links, set):
+            # 如果是 set，转换为 list（但顺序不可控）
+            links = list(links)
         for link in links:
             f.write(link + '\n')
 
