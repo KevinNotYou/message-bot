@@ -4,7 +4,7 @@ import json
 import os
 
 WEBHOOK_URL = os.getenv("WECHAT_WEBHOOK")
-FEED_URL = "https://CPR-RSS.github.io/rss/cvpr2020.xml"  # 示例RSS地址
+FEED_URL = "https://openai.com/blog/rss.xml"  # 示例openai文章
 
 def send_wechat_message(text):
     data = {
@@ -20,7 +20,7 @@ def main():
         print("未获取到RSS内容")
         return
 
-    msg = "**📢 CVPR 最新论文更新：**\n"
+    msg = "**📢 Openai 最新文章更新：**\n"
     for entry in feed.entries[:5]:  # 推送前5篇
         msg += f"> [{entry.title}]({entry.link})\n"
     send_wechat_message(msg)
