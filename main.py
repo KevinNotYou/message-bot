@@ -45,10 +45,10 @@ def main():
     # 如果是首次运行（历史记录为空），标记所有当前文章为已读，不推送
     if not pushed_links:
         print("首次运行，初始化历史记录")
-        for entry in feed.entries:
-            pushed_links.add(entry.link)
-        save_history(pushed_links)
-        print(f"已标记全部 {len(feed.entries)} 篇文章，下次只推送新增文章")
+        # 按照 RSS feed 的顺序保存（从新到旧）
+        links_to_save = [entry.link for entry in feed.entries]
+        save_history(links_to_save)
+        print(f"已标记全部 {len(links_to_save)} 篇文章，下次只推送新增文章")
         return
     
     # 筛选出未推送的文章（只看最新的5篇）
@@ -62,10 +62,13 @@ def main():
     msg = "**📢 Openai 最新文章更新：**\n"
     for entry in new_entries:
         msg += f"> [{entry.title}]({entry.link})\n"
-        pushed_links.add(entry.link)
+    
+    # 将新文章添加到历史记录的开头（保持从新到旧的顺序）
+    new_links = [entry.link for entry in new_entries]
+    all_links = new_links + [link for link in pushed_links if link not in new_links]
     
     send_wechat_message(msg)
-    save_history(pushed_links)
+    save_history(all_links)
     print(f"推送完成！共推送 {len(new_entries)} 篇新文章")
 
 if __name__ == "__main__":
