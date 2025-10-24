@@ -1,4 +1,3 @@
-```markdown
 # WeChat Company RSS Notifier
 
 This project automatically subscribes to new articles from any website that provides an **RSS feed**,  
@@ -19,56 +18,45 @@ and pushes updates to a **WeChat Company (企业微信)** group via webhook.
 ### 1️⃣ Get a WeChat Webhook
 - In your WeChat Company group, create a **bot** (添加机器人)
 - Copy the **webhook URL**, e.g.:
-```
 
+https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=YOUR_KEY
 
-
-```
+复制代码
 
 ---
 
 ### 2️⃣ Set the Webhook as a GitHub Secret
 - Go to your project repository → **Settings → Secrets and variables → Actions**
 - Create a new secret:
-```
 
 Name: WECHAT_WEBHOOK
+Value: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=YOUR_KEY
 
-
-````
+复制代码
 
 ---
 
 ### 3️⃣ Configure Your RSS Target
 - Open `main.py`
 - Replace the RSS feed URL with your target website’s feed:
+
 ```python
 RSS_URL = "https://example.com/rss.xml"
-````
-
----
-
-### 4️⃣ Run It
-
+4️⃣ Run It
 You can run it locally:
 
-```bash
+bash
+复制代码
 python3 main.py
-```
+Or use GitHub Actions for automatic scheduled updates.
+Example workflow will look like this:
 
-Or use **GitHub Actions** for automatic scheduled updates.
-Example workflow:
+🧠 Notes
+The script keeps track of previously pushed items to avoid duplicate notifications.
 
+It supports multiple RSS URLs (you can extend main.py to use a list).
 
----
-
-## 🧠 Notes
-
-* The script keeps track of previously pushed items to avoid duplicate notifications.
-* It supports multiple RSS URLs (you can extend `main.py` to use a list).
-* Works with both **GitHub Actions** and **self-hosted Ubuntu servers**.
-
----
+Works with both GitHub Actions and self-hosted Ubuntu servers.
 
 ## 📄 License
 
