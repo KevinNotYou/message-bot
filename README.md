@@ -3,6 +3,8 @@
 This project automatically subscribes to new articles from any website that provides an **RSS feed**,  
 and pushes updates to a **WeChat Company (企业微信)** group via webhook.
 
+**The default RSS feed is OpenAI’s news feed.**
+
 ---
 
 ## 🚀 Features
@@ -16,7 +18,7 @@ and pushes updates to a **WeChat Company (企业微信)** group via webhook.
 ## ⚙️ Usage
 
 ### 1️⃣ Get a WeChat Webhook
-- In your WeChat Company group, create a **bot** (添加机器人)
+- In your WeChat Company group, create a **bot** (消息推送 —> 自定义消息推送 -> copy Webhook地址)
 - Copy the **webhook URL**, e.g.:
 https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=YOUR_KEY
 
@@ -27,6 +29,7 @@ https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=YOUR_KEY
 - Create a new secret:
 
 Name: WECHAT_WEBHOOK
+
 Value: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=YOUR_KEY
 
 ---
@@ -35,11 +38,15 @@ Value: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=YOUR_KEY
 - Open `main.py`
 - Replace the RSS feed URL with your target website’s feed:
 
+**The default RSS feed is OpenAI’s news feed.**
 
-RSS_URL = "https://example.com/rss.xml"
-4️⃣ Run It
+RSS_URL = "https://openai.com/news/rss.xml"
+
+****
+
+### 4️⃣ Run It
+
 You can use GitHub Actions for automatic scheduled updates.
-
 
 🧠 Notes
 The script keeps track of previously pushed items to avoid duplicate notifications.
