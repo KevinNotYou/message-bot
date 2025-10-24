@@ -36,6 +36,8 @@ def main():
 
     # 加载历史记录
     pushed_links = load_history()
+    print(f"调试信息：历史记录数量 = {len(pushed_links)}")
+    print(f"调试信息：pushed_links 是否为空 = {not pushed_links}")
     
     # 如果是首次运行（历史记录为空），标记所有当前文章为已读，不推送
     if not pushed_links:
